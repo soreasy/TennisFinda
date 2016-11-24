@@ -5,11 +5,13 @@ class MotherApp extends React.Component {
 
         this.state = {
             lat: null,
-            lng: null
+            lng: null,
+            bla: 1
         }
     }
 
     handleSubmit(event) {
+        event.preventDefault()
         let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${$('#zip').val()}&key=AIzaSyCGh4qceX9J_w0ZjqFG2WfScGlQ_7p7Uek`
         fetch(url)
             .then((response) => response.json())
@@ -21,12 +23,13 @@ class MotherApp extends React.Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        debugger;
+        // debugger;
     }
 
     componentDidUpdate(prevProps, prevState) {
-        debugger;
+        // debugger;
     }
+
 
     render() {
         var lng = this.state.lng
@@ -48,6 +51,7 @@ class MotherApp extends React.Component {
                     <i className="material-icons right">send</i>
                   </button>
                 </form>
+                <div onClick={this.bla}>Click Me!</div>
                 <p>Lng is {lng}</p>
             </div>
         )
